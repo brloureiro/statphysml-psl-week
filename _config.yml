@@ -1,6 +1,6 @@
 title: Statistical Physics and Machine Learning
 description: PSL Weeks Advanced Lecture Course
-baseurl: "/statphysml-psl-week"
+baseurl: "/psl-week"
 url: "https://brloureiro.github.io"
 
 markdown: kramdown
