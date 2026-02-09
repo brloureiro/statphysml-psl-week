@@ -2,17 +2,17 @@
 {% assign current_id = meta.current %}
 
 <nav class="navbar">
-  <a class="nav-title" href="/">{{ meta.course.short_title }}</a>
+  <a class="nav-title" href="{{ site.baseurl }}/">{{ meta.course.short_title }}</a>
 
   <div class="nav-links">
     <div class="dropdown">
-      <button class="dropbtn">Past Editions ▾</button>
+      <button class="dropbtn">Editions ▾</button>
       <div class="dropdown-content">
         {% for ed in meta.editions %}
           {% if ed.id == current_id %}
-            <a class="active" href="{{ ed.url }}">{{ ed.label }}</a>
+            <a class="active" href="{{ site.baseurl }}{{ ed.url }}">{{ ed.label }}</a>
           {% else %}
-            <a href="{{ ed.url }}">{{ ed.label }}</a>
+            <a href="{{ site.baseurl }}{{ ed.url }}">{{ ed.label }}</a>
           {% endif %}
         {% endfor %}
       </div>
