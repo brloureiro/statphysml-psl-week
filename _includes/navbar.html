@@ -1,0 +1,21 @@
+{% assign meta = site.data.editions %}
+{% assign current_id = meta.current %}
+
+<nav class="navbar">
+  <a class="nav-title" href="/">{{ meta.course.short_title }}</a>
+
+  <div class="nav-links">
+    <div class="dropdown">
+      <button class="dropbtn">Past Editions ▾</button>
+      <div class="dropdown-content">
+        {% for ed in meta.editions %}
+          {% if ed.id == current_id %}
+            <a class="active" href="{{ ed.url }}">{{ ed.label }}</a>
+          {% else %}
+            <a href="{{ ed.url }}">{{ ed.label }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</nav>

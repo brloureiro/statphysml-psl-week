@@ -1,0 +1,9 @@
+title: Statistical Physics and Machine Learning
+description: PSL Weeks Advanced Lecture Course
+baseurl: ""
+url: ""
+
+markdown: kramdown
+
+plugins:
+  - jekyll-feed

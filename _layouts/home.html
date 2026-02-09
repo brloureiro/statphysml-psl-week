@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+{% assign meta = site.data.editions %}
+{% assign ed = meta.editions | where: "id", meta.current | first %}
+
+<h1>{{ meta.course.full_title }} — {{ ed.id }}</h1>
+<p class="subtitle">{{ meta.course.context }}</p>
+
+<div class="info-grid">
+  <div>
+    <strong>Instructor:</strong> {{ meta.course.instructor }}<br>
+    <strong>Affiliation:</strong> {{ meta.course.affiliation }}<br>
+    <strong>Contact:</strong> <a href="mailto:{{ meta.course.contact_email }}">{{ meta.course.contact_email }}</a>
+  </div>
+  <div>
+    <strong>Dates:</strong> {{ ed.dates }}<br>
+    <strong>Location:</strong> {{ ed.location }}
+  </div>
+</div>
+
+{% if ed.description and ed.description != "" %}
+<h2>Description</h2>
+<p>{{ ed.description }}</p>
+{% endif %}
+
+{% if ed.schedule and ed.schedule.size > 0 %}
+<h2>Schedule</h2>
+<table>
+  <thead>
+    <tr><th>Date</th><th>Topic</th><th>Materials</th></tr>
+  </thead>
+  <tbody>
+    {% for item in ed.schedule %}
+    <tr>
+      <td>{{ item.date }}</td>
+      <td>{{ item.topic }}</td>
+      <td>
+        {% if item.materials and item.materials != "" %}
+          <a href="{{ item.materials }}">link</a>
+        {% else %}—{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
